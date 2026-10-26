@@ -113,42 +113,31 @@ p { margin: 0; }
 /* Team */
 .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .member {
-  position: relative; aspect-ratio: 3 / 4; display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 20px; border-radius: 24px; overflow: hidden; isolation: isolate; color: #fff; background: #0B0817;
+  display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: var(--surface);
   box-shadow: 0 0 0 1px var(--line); transition: transform .45s cubic-bezier(.2, .7, .2, 1), box-shadow .45s ease;
 }
-.member > img {
+.member:hover { transform: translateY(-6px); box-shadow: 0 0 0 1px color-mix(in srgb, var(--brand) 45%, var(--line)), 0 30px 60px -28px rgba(80, 0, 255, .7); }
+.member-photo {
+  position: relative; aspect-ratio: 4 / 5; display: flex; align-items: flex-end; padding: 20px;
+  overflow: hidden; isolation: isolate; background: #0B0817;
+}
+.member-photo img {
   position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover;
   transition: transform .9s cubic-bezier(.2, .7, .2, 1);
 }
-.member::before {
+.member-photo::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to top, rgba(11, 8, 23, .95) 0%, rgba(11, 8, 23, .6) 30%, rgba(11, 8, 23, 0) 58%);
+  background: linear-gradient(to top, rgba(11, 8, 23, .9) 0%, rgba(11, 8, 23, .45) 26%, rgba(11, 8, 23, 0) 50%);
 }
-.member::after {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); transition: box-shadow .45s ease;
-}
-.member:hover { transform: translateY(-6px); box-shadow: 0 0 0 1px transparent, 0 30px 60px -28px rgba(80, 0, 255, .7); }
-.member:hover > img { transform: scale(1.06); }
-.member:hover::after { box-shadow: inset 0 0 0 1.5px rgba(155, 107, 255, .9); }
-.num {
-  position: absolute; top: 16px; left: 16px; padding: 6px 10px; border-radius: 999px;
-  font: 500 11.5px/1 var(--mono); color: rgba(255, 255, 255, .9);
-  background: rgba(11, 8, 23, .35); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14);
-}
+.member:hover .member-photo img { transform: scale(1.06); }
 .member h3 { font-size: 22px; color: #fff; }
-.role { margin-top: 6px; font-size: 11.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: #C9B5FF; }
 .url {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 16px;
-  padding: 11px 14px; border-radius: 14px; font: 500 13px/1 var(--mono); color: #fff;
-  background: rgba(255, 255, 255, .1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); transition: background .25s, color .25s;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 16px 20px;
+  font: 500 13.5px/1 var(--mono); color: var(--text); transition: background .25s, color .25s;
 }
-.url svg { width: 14px; height: 14px; flex: none; transition: transform .25s; }
-.url:hover { background: #fff; color: #3F00CC; }
-.url:hover svg { transform: translate(2px, -2px); }
+.url svg { width: 15px; height: 15px; flex: none; color: var(--brand); transition: transform .25s, color .25s; }
+.url:hover { background: var(--brand); color: #fff; }
+.url:hover svg { color: #fff; transform: translate(2px, -2px); }
 
 /* Portfolio */
 .work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -213,12 +202,11 @@ p { margin: 0; }
   .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
   .work-grid { grid-template-columns: 1fr; }
   .team-grid { gap: 12px; }
-  .member { padding: 12px; border-radius: 18px; }
+  .member { border-radius: 18px; }
+  .member-photo { padding: 12px; }
   .member h3 { font-size: 16px; }
-  .role { font-size: 9.5px; letter-spacing: .04em; }
-  .url { margin-top: 10px; padding: 9px 10px; border-radius: 11px; font-size: 10.5px; }
-  .url svg { width: 12px; height: 12px; }
-  .num { top: 10px; left: 10px; font-size: 10px; padding: 5px 8px; }
+  .url { padding: 12px; font-size: 11px; }
+  .url svg { width: 13px; height: 13px; }
   .cta-box { padding: 64px 22px; border-radius: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -267,31 +255,19 @@ p { margin: 0; }
       <h2 class="reveal">Kadromuz</h2>
       <div class="team-grid">
         <article class="member reveal">
-          <img src="assets/team/mert.webp" alt="A. Mert Kızılırmak" width="460" height="460" loading="lazy">
-          <span class="num">01</span>
-          <h3>A. Mert Kızılırmak</h3>
-          <p class="role">Tersine Mühendislik</p>
+          <div class="member-photo"><img src="assets/team/mert.webp" alt="A. Mert Kızılırmak" width="460" height="460" loading="lazy"><h3>A. Mert Kızılırmak</h3></div>
           <a class="url" href="https://redriverlab.me/" target="_blank" rel="noopener">redriverlab.me<svg aria-hidden="true"><use href="#ext"/></svg></a>
         </article>
         <article class="member reveal" style="--d:0.06s">
-          <img src="assets/team/arda.webp" alt="H. Arda Karabacak" width="460" height="460" loading="lazy">
-          <span class="num">02</span>
-          <h3>H. Arda Karabacak</h3>
-          <p class="role">Ağ & Sistem · Tasarım</p>
+          <div class="member-photo"><img src="assets/team/arda.webp" alt="H. Arda Karabacak" width="460" height="460" loading="lazy"><h3>H. Arda Karabacak</h3></div>
           <a class="url" href="https://frudotz.com/" target="_blank" rel="noopener">frudotz.com<svg aria-hidden="true"><use href="#ext"/></svg></a>
         </article>
         <article class="member reveal" style="--d:0.12s">
-          <img src="assets/team/rauf.webp" alt="Rauf Fatih Kaya" width="460" height="460" loading="lazy">
-          <span class="num">03</span>
-          <h3>Rauf Fatih Kaya</h3>
-          <p class="role">Full-Stack · Siber Güvenlik</p>
+          <div class="member-photo"><img src="assets/team/rauf.webp" alt="Rauf Fatih Kaya" width="460" height="460" loading="lazy"><h3>Rauf Fatih Kaya</h3></div>
           <a class="url" href="https://rfkaya.com/" target="_blank" rel="noopener">rfkaya.com<svg aria-hidden="true"><use href="#ext"/></svg></a>
         </article>
         <article class="member reveal" style="--d:0.18s">
-          <img src="assets/team/mahmut.webp" alt="Mahmut Çirka" width="460" height="460" loading="lazy">
-          <span class="num">04</span>
-          <h3>Mahmut Çirka</h3>
-          <p class="role">Full-Stack · Ağ Güvenliği</p>
+          <div class="member-photo"><img src="assets/team/mahmut.webp" alt="Mahmut Çirka" width="460" height="460" loading="lazy"><h3>Mahmut Çirka</h3></div>
           <a class="url" href="https://mahmutcirka.me/" target="_blank" rel="noopener">mahmutcirka.me<svg aria-hidden="true"><use href="#ext"/></svg></a>
         </article>
       </div>
