@@ -1,27 +1,1033 @@
+<!doctype html>
 <html lang="tr">
 <head>
-<link rel="icon" href="https://raw.githubusercontent.com/rootiverdev/rootiverdev.github.io/main/Icon.png">
-<link rel="preload" href="https://raw.githubusercontent.com/rootiverdev/rootiverdev.github.io/main/Banner.png" as="image">
-</head>
-</html>
-<style>
-* {
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    user-select: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootiver — Kökten Sağlam Yazılım</title>
+<meta name="description" content="Rootiver; web, backend, siber güvenlik ve altyapıda uzmanlaşmış bir yazılım geliştirme ekibidir. Fikrinizi güvenli ve ölçeklenebilir bir ürüne dönüştürüyoruz.">
+<meta name="theme-color" content="#5000FF">
+<link rel="icon" type="image/png" href="Icon.png">
+<link rel="apple-touch-icon" href="Icon.png">
+<link rel="canonical" href="https://rootiver.net/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rootiver — Kökten Sağlam Yazılım">
+<meta property="og:description" content="Web, backend, siber güvenlik ve altyapıda uzman yazılım ekibi.">
+<meta property="og:url" content="https://rootiver.net/">
+<meta property="og:image" content="https://rootiver.net/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Rootiver",
+  "url": "https://rootiver.net/",
+  "logo": "https://rootiver.net/Icon.png",
+  "slogan": "Here! Everything is developing from a root.",
+  "sameAs": ["https://github.com/rootiverdev"],
+  "member": [
+    {"@type": "Person", "name": "A. Mert Kızılırmak", "url": "https://redriverlab.me/"},
+    {"@type": "Person", "name": "H. Arda Karabacak", "url": "https://frudotz.com/"},
+    {"@type": "Person", "name": "Rauf Fatih Kaya", "url": "https://rfkaya.com/"},
+    {"@type": "Person", "name": "Mahmut Çirka", "url": "https://mahmutcirka.me/"}
+  ]
 }
-  body {
-    background: url(https://raw.githubusercontent.com/rootiverdev/rootiverdev.github.io/main/Banner.png) no-repeat center center fixed;
-    background-size: cover
+</script>
+<style>
+:root {
+  --brand: #5000FF;
+  --brand-strong: #3F00CC;
+  --brand-soft: #F2ECFF;
+  --brand-line: #DCCCFF;
+  --bg: #FFFFFF;
+  --bg-soft: #F8F6FD;
+  --surface: #FFFFFF;
+  --text: #141026;
+  --muted: #5E5978;
+  --line: #E9E5F3;
+  --ink: #0B0817;
+  --ink-2: #14102A;
+  --ink-line: #272040;
+  --ink-text: #EEEBFA;
+  --ink-muted: #A49EC2;
+  --ok: #18C48F;
+  --shadow: 0 1px 2px rgba(20, 16, 38, .04), 0 8px 24px -8px rgba(20, 16, 38, .10);
+  --shadow-lg: 0 2px 4px rgba(20, 16, 38, .04), 0 24px 60px -20px rgba(60, 0, 190, .28);
+  --radius: 18px;
+  --display: "Outfit", system-ui, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --brand: #7B42FF;
+    --brand-strong: #9A6BFF;
+    --brand-soft: #1A1233;
+    --brand-line: #34245E;
+    --bg: #09070F;
+    --bg-soft: #0E0B19;
+    --surface: #121022;
+    --text: #EEEBFA;
+    --muted: #A49EC2;
+    --line: #221D36;
+    --ink: #050409;
+    --ink-2: #100D1E;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px -8px rgba(0, 0, 0, .5);
+    --shadow-lg: 0 24px 60px -20px rgba(80, 0, 255, .35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --brand: #7B42FF;
+  --brand-strong: #9A6BFF;
+  --brand-soft: #1A1233;
+  --brand-line: #34245E;
+  --bg: #09070F;
+  --bg-soft: #0E0B19;
+  --surface: #121022;
+  --text: #EEEBFA;
+  --muted: #A49EC2;
+  --line: #221D36;
+  --ink: #050409;
+  --ink-2: #100D1E;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px -8px rgba(0, 0, 0, .5);
+  --shadow-lg: 0 24px 60px -20px rgba(80, 0, 255, .35);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 16px/1.6 var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -.02em; }
+p { margin: 0; }
+::selection { background: var(--brand); color: #fff; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.hero-grid > *, .services-grid > *, .work-grid > *, .oss-grid > *, .team-grid > *, .why-grid > * { min-width: 0; }
+.section { padding: 112px 0; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 500 13px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--brand);
+}
+.eyebrow::before { content: ""; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-head { max-width: 720px; margin-bottom: 56px; }
+.section-head h2 { font-size: clamp(32px, 4.4vw, 52px); font-weight: 600; margin-top: 18px; }
+.section-head p { color: var(--muted); font-size: 18px; margin-top: 18px; max-width: 600px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 52px; padding: 0 24px; border-radius: 999px;
+  font: 600 15px/1 var(--body); cursor: pointer; border: 0;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn svg { width: 18px; height: 18px; transition: transform .2s ease; }
+.btn:hover svg { transform: translateX(3px); }
+.btn-primary { background: var(--brand); color: #fff; box-shadow: 0 10px 30px -10px rgba(80, 0, 255, .7); }
+.btn-primary:hover { background: var(--brand-strong); transform: translateY(-1px); }
+.btn-ghost { background: var(--surface); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+.btn-ghost:hover { box-shadow: inset 0 0 0 1px var(--brand-line); color: var(--brand); }
+
+/* ---------- Header ---------- */
+.header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  transition: background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+}
+.header.scrolled {
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  box-shadow: 0 1px 0 var(--line);
+}
+.header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font: 600 24px/1 var(--display); letter-spacing: -.02em; color: var(--brand); }
+.logo svg { width: 40px; height: auto; }
+.nav { display: flex; align-items: center; gap: 6px; }
+.nav a:not(.btn) { padding: 10px 14px; border-radius: 999px; color: var(--muted); font-weight: 500; font-size: 15px; transition: color .2s, background .2s; }
+.nav a:not(.btn):hover { color: var(--text); background: var(--bg-soft); }
+.nav .btn { height: 42px; padding: 0 18px; margin-left: 8px; font-size: 14px; }
+.icon-btn {
+  width: 42px; height: 42px; border-radius: 999px; border: 0; background: transparent; color: var(--muted);
+  display: inline-grid; place-items: center; cursor: pointer; transition: background .2s, color .2s;
+}
+.icon-btn:hover { background: var(--bg-soft); color: var(--text); }
+.icon-btn svg { width: 20px; height: 20px; }
+.menu-btn { display: none; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; padding: 168px 0 96px; overflow: hidden; isolation: isolate; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+  opacity: .7;
+}
+.hero::after {
+  content: ""; position: absolute; z-index: -1;
+  width: 900px; height: 900px; right: -260px; top: -320px;
+  background: radial-gradient(closest-side, rgba(80, 0, 255, .20), transparent 70%);
+  filter: blur(10px);
+}
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 64px; align-items: center; }
+.pill {
+  display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 8px; border-radius: 999px;
+  background: var(--surface); box-shadow: inset 0 0 0 1px var(--line), var(--shadow);
+  font-size: 13.5px; color: var(--muted); font-weight: 500;
+}
+.pill b { display: inline-flex; align-items: center; gap: 6px; background: var(--brand-soft); color: var(--brand); padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 12px; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 rgba(24, 196, 143, .6); animation: ping 2.2s infinite; flex: none; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(24, 196, 143, .55); } 80%, 100% { box-shadow: 0 0 0 8px rgba(24, 196, 143, 0); } }
+.hero h1 { font-size: clamp(44px, 6.4vw, 84px); font-weight: 600; margin-top: 28px; letter-spacing: -.035em; line-height: 1.02; }
+.hero h1 em { font-style: normal; color: var(--brand); position: relative; white-space: nowrap; }
+.hero h1 em svg { position: absolute; left: -2%; bottom: -.12em; width: 104%; height: .28em; color: var(--brand); opacity: .35; }
+.hero .lead { font-size: 19px; color: var(--muted); margin-top: 26px; max-width: 540px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+.hero-proof { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 44px; color: var(--muted); font-size: 14px; }
+.hero-proof span { display: inline-flex; align-items: center; gap: 8px; }
+.hero-proof svg { width: 18px; height: 18px; color: var(--brand); flex: none; }
+
+/* Terminal */
+.terminal {
+  position: relative; border-radius: 20px; background: var(--ink); color: var(--ink-text);
+  box-shadow: var(--shadow-lg), inset 0 0 0 1px var(--ink-line);
+  font: 400 13.5px/1.75 var(--mono); overflow: hidden;
+  transform: perspective(1400px) rotateY(-6deg) rotateX(2deg);
+  transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+}
+.terminal:hover { transform: perspective(1400px) rotateY(0) rotateX(0); }
+.terminal-bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--ink-line); background: rgba(255, 255, 255, .02); }
+.terminal-bar i { width: 11px; height: 11px; border-radius: 50%; background: #2C2545; }
+.terminal-bar i:nth-child(1) { background: #FF5F57; } .terminal-bar i:nth-child(2) { background: #FEBC2E; } .terminal-bar i:nth-child(3) { background: #28C840; }
+.terminal-bar span { margin-left: auto; margin-right: auto; color: var(--ink-muted); font-size: 12px; transform: translateX(-24px); }
+.terminal-body { padding: 22px 22px 26px; min-height: 340px; }
+.t-line { opacity: 0; transform: translateY(4px); animation: tline .4s ease forwards; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@keyframes tline { to { opacity: 1; transform: none; } }
+.t-prompt { color: #9C7BFF; } .t-path { color: #5EE6B7; } .t-dim { color: var(--ink-muted); }
+.t-row { display: grid; grid-template-columns: 16px 1fr auto; gap: 10px; align-items: center; }
+.t-row .ok { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px rgba(24, 196, 143, .8); }
+.t-row b { font-weight: 500; color: #fff; }
+.t-row em { font-style: normal; color: var(--ink-muted); font-size: 12.5px; }
+.t-cursor { display: inline-block; width: 8px; height: 16px; background: #9C7BFF; vertical-align: -3px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.terminal-glow { position: absolute; width: 380px; height: 380px; right: -120px; bottom: -160px; background: radial-gradient(closest-side, rgba(80, 0, 255, .55), transparent); pointer-events: none; }
+
+/* ---------- Stats ---------- */
+.stats { padding: 0 0 24px; }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-radius: 24px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line), var(--shadow);
+}
+.stat { padding: 34px 32px; position: relative; }
+.stat + .stat::before { content: ""; position: absolute; left: 0; top: 28px; bottom: 28px; width: 1px; background: var(--line); }
+.stat strong { display: block; font: 600 clamp(36px, 4vw, 48px)/1 var(--display); letter-spacing: -.03em; }
+.stat strong sup { color: var(--brand); font-size: .55em; vertical-align: .55em; margin-left: 2px; }
+.stat > span { display: block; color: var(--muted); font-size: 14.5px; margin-top: 12px; line-height: 1.45; }
+
+/* ---------- Marquee ---------- */
+.marquee { padding: 56px 0 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.marquee-track { display: flex; gap: 14px; width: max-content; animation: marquee 48s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track span { font: 500 14px/1 var(--mono); color: var(--muted); padding: 12px 18px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); white-space: nowrap; }
+.marquee-track span::before { content: "›"; color: var(--brand); margin-right: 8px; }
+@keyframes marquee { to { transform: translateX(calc(-50% - 7px)); } }
+
+/* ---------- Services ---------- */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.service {
+  position: relative; padding: 32px; border-radius: var(--radius); background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow .3s ease, transform .3s ease; overflow: hidden;
+}
+.service:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px var(--brand-line), var(--shadow-lg); }
+.service::after {
+  content: ""; position: absolute; inset: auto -40% -60% auto; width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(80, 0, 255, .12), transparent); opacity: 0; transition: opacity .3s;
+}
+.service:hover::after { opacity: 1; }
+.service-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); }
+.service-icon svg { width: 26px; height: 26px; }
+.service h3 { font-size: 22px; font-weight: 600; margin-top: 26px; }
+.service p { color: var(--muted); margin-top: 10px; font-size: 15.5px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.tag { font: 500 12px/1 var(--mono); padding: 7px 10px; border-radius: 8px; background: var(--bg-soft); color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* ---------- Why / Security ---------- */
+.why { background: var(--bg-soft); border-block: 1px solid var(--line); }
+.why-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: start; }
+.why-grid .section-head { margin-bottom: 0; position: sticky; top: 120px; }
+.why-list { display: grid; gap: 16px; }
+.why-item { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 28px; border-radius: var(--radius); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.why-item .num { font: 500 13px/1 var(--mono); color: var(--brand); width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: var(--brand-soft); }
+.why-item h3 { font-size: 20px; font-weight: 600; }
+.why-item p { color: var(--muted); margin-top: 8px; font-size: 15.5px; }
+
+/* ---------- Work (always dark) ---------- */
+.work { background: var(--ink); color: var(--ink-text); position: relative; overflow: hidden; isolation: isolate; }
+.work::before { content: ""; position: absolute; z-index: -1; width: 1100px; height: 700px; left: 50%; top: -360px; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(80, 0, 255, .38), transparent 70%); }
+.work .eyebrow { color: #A98BFF; }
+.work .section-head p { color: var(--ink-muted); }
+.work-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
+.work-top .section-head { margin-bottom: 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; border-radius: 999px; background: rgba(255, 255, 255, .04); box-shadow: inset 0 0 0 1px var(--ink-line); }
+.filters button {
+  border: 0; background: transparent; color: var(--ink-muted); font: 500 14px/1 var(--body);
+  padding: 11px 16px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s;
+}
+.filters button:hover { color: #fff; }
+.filters button[aria-pressed="true"] { background: #fff; color: var(--ink); }
+
+.work-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.project {
+  grid-column: span 2; display: flex; flex-direction: column; border-radius: 22px; overflow: hidden;
+  background: var(--ink-2); box-shadow: inset 0 0 0 1px var(--ink-line); transition: transform .35s ease, box-shadow .35s ease;
+}
+.project:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px #3D2F6E, 0 30px 60px -30px rgba(80, 0, 255, .6); }
+.project.half { grid-column: span 3; }
+.project.full { grid-column: span 6; display: grid; grid-template-columns: 1.35fr 1fr; }
+.project.full .shot { margin: 28px 0 28px 28px; align-self: center; }
+.project.full .project-body { padding: 44px 44px 40px; justify-content: center; }
+.project.full h3 { font-size: 36px; }
+.project[hidden] { display: none; }
+.shot { display: block; margin: 16px 16px 0; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 0 0 1px var(--ink-line); }
+.shot-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #1B1730; }
+.shot-bar i { width: 8px; height: 8px; border-radius: 50%; background: #3A3358; }
+.shot-bar span { margin-left: 10px; flex: 1; display: flex; align-items: center; gap: 6px; font: 400 11.5px/1 var(--mono); color: var(--ink-muted); background: rgba(255, 255, 255, .05); padding: 6px 10px; border-radius: 6px; overflow: hidden; white-space: nowrap; }
+.shot-bar span svg { width: 11px; height: 11px; color: var(--ok); flex: none; }
+.shot img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.project:hover .shot img { transform: scale(1.03); }
+.project-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+.project-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; font: 500 12px/1 var(--mono); color: var(--ink-muted); text-transform: uppercase; letter-spacing: .05em; }
+.live { display: inline-flex; align-items: center; gap: 7px; color: #5EE6B7; text-transform: none; letter-spacing: 0; }
+.project h3 { font-size: 24px; font-weight: 600; margin-top: 16px; color: #fff; }
+.project p { color: var(--ink-muted); margin-top: 10px; font-size: 15px; }
+.project .tags { margin-top: 18px; }
+.project .tag { background: rgba(255, 255, 255, .04); color: #C9C3E3; box-shadow: inset 0 0 0 1px var(--ink-line); }
+.project-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 22px; }
+.by { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-muted); }
+.by .mono-av { width: 26px; height: 26px; font-size: 10.5px; border-radius: 8px; }
+.by-stack { display: inline-flex; }
+.by-stack .mono-av { box-shadow: 0 0 0 2px var(--ink-2); }
+.by-stack .mono-av + .mono-av { margin-left: -7px; }
+.go { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; color: #fff; padding: 9px 14px; border-radius: 999px; background: rgba(255, 255, 255, .06); transition: background .2s; }
+.go:hover { background: var(--brand); }
+.go svg { width: 15px; height: 15px; }
+.project.full .metric { display: flex; gap: 32px; margin-top: 26px; }
+.metric div strong { display: block; font: 600 28px/1 var(--display); color: #fff; }
+.metric div span { font-size: 13px; color: var(--ink-muted); }
+
+.oss-head { display: flex; align-items: center; gap: 16px; margin: 72px 0 24px; }
+.oss-head h3 { font-size: 22px; font-weight: 600; color: #fff; }
+.oss-head::after { content: ""; flex: 1; height: 1px; background: var(--ink-line); }
+.oss-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.oss {
+  display: flex; flex-direction: column; padding: 22px; border-radius: 16px; background: rgba(255, 255, 255, .025);
+  box-shadow: inset 0 0 0 1px var(--ink-line); transition: background .2s, box-shadow .2s;
+}
+.oss:hover { background: rgba(80, 0, 255, .10); box-shadow: inset 0 0 0 1px #4A35A0; }
+.oss[hidden] { display: none; }
+.oss-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; font: 500 11.5px/1 var(--mono); color: var(--ink-muted); text-transform: uppercase; letter-spacing: .05em; }
+.oss-top .arrow { width: 16px; height: 16px; color: var(--ink-muted); transition: transform .2s, color .2s; }
+.oss:hover .arrow { transform: translate(2px, -2px); color: #fff; }
+.oss h4 { font-size: 18px; font-weight: 600; color: #fff; margin-top: 14px; letter-spacing: -.01em; }
+.oss p { font-size: 14px; color: var(--ink-muted); margin-top: 8px; line-height: 1.55; }
+.oss-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 18px; font: 400 12.5px/1 var(--mono); color: var(--ink-muted); }
+.oss-foot .by { font-family: var(--body); font-size: 13px; }
+.oss-foot .by .mono-av { width: 22px; height: 22px; font-size: 9px; border-radius: 7px; }
+.star { display: inline-flex; align-items: center; gap: 5px; }
+.star svg { width: 13px; height: 13px; color: #FEBC2E; }
+
+/* ---------- Team ---------- */
+.mono-av {
+  display: inline-grid; place-items: center; flex: none; color: #fff; font: 600 12px/1 var(--display); letter-spacing: .02em;
+  background: linear-gradient(140deg, var(--c1), var(--c2));
+}
+.team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.member {
+  position: relative; display: flex; flex-direction: column; padding: 28px; border-radius: 22px; background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line); transition: transform .3s ease, box-shadow .3s ease;
+}
+.member:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px var(--brand-line), var(--shadow-lg); }
+.member-av { position: relative; width: 84px; height: 84px; border-radius: 24px; font-size: 28px; overflow: hidden; }
+.member-av::after {
+  content: ""; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 145 64'%3E%3Cpath fill='white' d='M29.6 0H50.9L25.6 27.1Q23.7 29 23.7 31.9Q23.7 34.8 25.6 36.7L35.9 47Q38 48.9 40.7 48.9Q43.4 48.9 45.4 47L90.5 2Q92.5 0 94.9 0H113.9Q116.4 0 118.4 2L142.5 26Q144.9 28.6 144.9 31.9Q144.9 35.2 142.5 37.9L117.4 62.9Q116.4 63.9 115.2 63.9H94L119.3 36.7Q121.2 34.8 121.2 31.9Q121.2 29 119.3 27.1L109.4 17.1Q107.3 15.1 104.4 15.1Q101.6 15.1 99.6 17.1L54.7 61.9Q52.7 63.9 50.4 63.9H31Q28.4 63.9 26.6 62L2.5 37.9Q0 35.2 0 31.9Q0 28.6 2.5 26L27.5 1Q28.4 0 29.6 0Z'/%3E%3C/svg%3E") no-repeat 130% 120% / 120%;
+  opacity: .14;
+}
+.member-role { font: 500 12px/1.4 var(--mono); color: var(--brand); text-transform: uppercase; letter-spacing: .05em; margin-top: 24px; }
+.member h3 { font-size: 22px; font-weight: 600; margin-top: 8px; }
+.member p { color: var(--muted); font-size: 15px; margin-top: 12px; }
+.member .tags { margin-top: 18px; }
+.member-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 24px; }
+.member-links a {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: var(--muted);
+  box-shadow: inset 0 0 0 1px var(--line); transition: color .2s, background .2s, box-shadow .2s;
+}
+.member-links a:hover { color: #fff; background: var(--brand); box-shadow: none; }
+.member-links a svg { width: 18px; height: 18px; }
+.member-links a.site { flex: 1 0 100%; width: auto; padding: 0 14px; gap: 8px; display: inline-flex; align-items: center; justify-content: center; font: 500 13px/1 var(--mono); }
+
+/* ---------- Process ---------- */
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; position: relative; }
+.process-grid::before { content: ""; position: absolute; left: 28px; right: calc(25% - 28px); top: 27px; height: 2px; background: linear-gradient(90deg, var(--brand), var(--brand-line)); }
+.step { position: relative; padding-right: 28px; }
+.step-dot { position: relative; width: 56px; height: 56px; border-radius: 50%; background: var(--bg); box-shadow: inset 0 0 0 2px var(--brand); display: grid; place-items: center; color: var(--brand); }
+.step-dot svg { width: 24px; height: 24px; }
+.step small { display: block; font: 500 12px/1 var(--mono); color: var(--muted); margin-top: 28px; }
+.step h3 { font-size: 22px; font-weight: 600; margin-top: 10px; }
+.step p { color: var(--muted); font-size: 15px; margin-top: 10px; }
+
+/* ---------- CTA ---------- */
+.cta { padding: 0 0 112px; }
+.cta-box {
+  position: relative; overflow: hidden; isolation: isolate; border-radius: 32px; padding: 88px 64px; text-align: center;
+  background: var(--brand); color: #fff;
+  background-image: radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, .18), transparent 50%), radial-gradient(ellipse at 100% 100%, rgba(0, 0, 0, .25), transparent 55%);
+}
+.cta-box .big-mark { position: absolute; z-index: -1; width: 720px; right: -180px; bottom: -150px; color: rgba(255, 255, 255, .07); }
+.cta-box .big-mark.l { left: -260px; top: -180px; right: auto; bottom: auto; width: 560px; transform: rotate(180deg); }
+.cta-box h2 { font-size: clamp(34px, 5vw, 60px); font-weight: 600; letter-spacing: -.03em; max-width: 780px; margin: 0 auto; }
+.cta-box p { font-size: 18px; color: rgba(255, 255, 255, .82); margin: 20px auto 0; max-width: 560px; }
+.cta-box .hero-cta { justify-content: center; }
+.cta-box .btn-primary { background: #fff; color: var(--brand-strong); box-shadow: 0 16px 40px -14px rgba(0, 0, 0, .45); }
+:root[data-theme="dark"] .cta-box .btn-primary { color: #3F00CC; }
+.cta-box .btn-primary:hover { background: #F2ECFF; }
+.cta-box .btn-ghost { background: rgba(255, 255, 255, .1); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .3); }
+.cta-box .btn-ghost:hover { background: rgba(255, 255, 255, .18); }
+.mail-copy { display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; font: 400 14px/1 var(--mono); color: rgba(255, 255, 255, .75); background: none; border: 0; cursor: pointer; }
+.mail-copy:hover { color: #fff; }
+.mail-copy svg { width: 15px; height: 15px; }
+
+/* ---------- Footer ---------- */
+.footer { border-top: 1px solid var(--line); padding: 44px 0; color: var(--muted); font-size: 14px; }
+.footer .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.footer .logo { font-size: 20px; }
+.footer .logo svg { width: 32px; }
+.footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer-links a:hover { color: var(--brand); }
+.footer i { font-style: normal; font-family: var(--mono); font-size: 13px; }
+
+/* ---------- Reveal ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--d, 0s); }
+.reveal.in { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1080px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+  .terminal { transform: none; max-width: 640px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .why-grid { grid-template-columns: 1fr; gap: 40px; }
+  .why-grid .section-head { position: static; }
+  .project, .project.half { grid-column: span 3; }
+  .project.full { grid-template-columns: 1fr; }
+  .project.full .shot { margin: 16px 16px 0; }
+  .project.full .project-body { padding: 24px 24px 26px; }
+  .project.full h3 { font-size: 28px; }
+  .oss-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .menu-btn { display: inline-grid; }
+  .nav {
+    position: fixed; inset: 76px 0 auto 0; flex-direction: column; align-items: stretch; gap: 2px;
+    padding: 12px 16px 20px; background: var(--bg); box-shadow: 0 1px 0 var(--line), 0 20px 40px -20px rgba(0, 0, 0, .2);
+    transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+  }
+  .nav.open { transform: none; opacity: 1; pointer-events: auto; }
+  .nav a:not(.btn) { padding: 14px 12px; font-size: 16px; }
+  .nav .btn { margin: 10px 0 0; height: 50px; justify-content: center; }
+  .nav .icon-btn.theme { display: none; }
+  .header:has(.nav.open) { background: var(--bg); box-shadow: 0 1px 0 var(--line); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3)::before { display: none; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .process-grid { grid-template-columns: 1fr 1fr; gap: 44px 0; }
+  .process-grid::before { display: none; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 16px; }
+  .section { padding: 80px 0; }
+  .hero { padding: 128px 0 72px; }
+  .hero .lead { font-size: 17px; }
+  .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
+  .terminal { font-size: 11.5px; }
+  .terminal-body { padding: 18px 16px 20px; min-height: 300px; }
+  .t-row em { display: none; }
+  .t-row { grid-template-columns: 14px 1fr; }
+  .stat { padding: 26px 20px; }
+  .services-grid, .team-grid, .oss-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr; }
+  .project, .project.half, .project.full { grid-column: auto; }
+  .filters { width: 100%; display: grid; grid-template-columns: 1fr 1fr; border-radius: 18px; }
+  .filters button { padding: 12px; font-size: 13.5px; border-radius: 12px; }
+  .pill .slogan { display: none; }
+  .pill { padding-right: 8px; }
+  .process-grid { grid-template-columns: 1fr; }
+  .why-item { grid-template-columns: 1fr; padding: 24px; gap: 16px; }
+  .cta { padding-bottom: 80px; }
+  .cta-box { padding: 64px 22px; border-radius: 24px; }
+  .section-head { margin-bottom: 40px; }
+  .footer .wrap { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+  .marquee-track span[aria-hidden] { display: none; }
 }
 </style>
+</head>
+<body class="no-js">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 145 64"><path fill="currentColor" d="M29.6 0H50.9L25.6 27.1Q23.7 29 23.7 31.9Q23.7 34.8 25.6 36.7L35.9 47Q38 48.9 40.7 48.9Q43.4 48.9 45.4 47L90.5 2Q92.5 0 94.9 0H113.9Q116.4 0 118.4 2L142.5 26Q144.9 28.6 144.9 31.9Q144.9 35.2 142.5 37.9L117.4 62.9Q116.4 63.9 115.2 63.9H94L119.3 36.7Q121.2 34.8 121.2 31.9Q121.2 29 119.3 27.1L109.4 17.1Q107.3 15.1 104.4 15.1Q101.6 15.1 99.6 17.1L54.7 61.9Q52.7 63.9 50.4 63.9H31Q28.4 63.9 26.6 62L2.5 37.9Q0 35.2 0 31.9Q0 28.6 2.5 26L27.5 1Q28.4 0 29.6 0Z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="lock" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3zM8.8 12.2l2.2 2.2 4.4-4.6"/></symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></symbol>
+  <symbol id="gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></symbol>
+  <symbol id="in" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.1c.5-1 1.8-1.9 3.7-1.9 4 0 4.7 2.5 4.7 5.8v5.6h-4v-5c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6v5.1h-4z"/></symbol>
+  <symbol id="be" viewBox="0 0 24 24"><path fill="currentColor" d="M8.2 11.3c.9-.4 1.4-1.2 1.4-2.2C9.6 7 8.1 6 6 6H1v12h5.2c2.2 0 4.2-1 4.2-3.5 0-1.5-.8-2.7-2.2-3.2zM3.3 8h2.3c.9 0 1.6.3 1.6 1.2 0 1-.6 1.3-1.5 1.3H3.3zm2.5 8H3.3v-3.4h2.6c1.1 0 1.8.4 1.8 1.7 0 1.2-.9 1.7-1.9 1.7zM15.3 7h5.2v1.3h-5.2zm2.7 2.8c-2.7 0-4.4 1.9-4.4 4.4 0 2.6 1.6 4.4 4.4 4.4 2 0 3.4-.9 4-2.9h-2.1c-.2.7-1 1.1-1.8 1.1-1.3 0-2-.8-2-2.1h6c.2-2.7-1.2-4.9-4.1-4.9zm-1.9 3.4c.1-1.1.8-1.8 1.9-1.8s1.7.7 1.8 1.8z"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3.5 9h17M3.5 15h17M12 3c2.3 2.4 3.5 5.4 3.5 9s-1.2 6.6-3.5 9c-2.3-2.4-3.5-5.4-3.5-9S9.7 5.4 12 3z"/></symbol>
+</svg>
+
+<header class="header" id="top">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Rootiver ana sayfa">
+      <svg viewBox="0 0 145 64" aria-hidden="true"><use href="#mark"/></svg>Rootiver
+    </a>
+    <nav class="nav" id="nav" aria-label="Ana menü">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#isler">İşlerimiz</a>
+      <a href="#ekip">Ekip</a>
+      <a href="#surec">Süreç</a>
+      <button class="icon-btn theme" id="themeBtn" type="button" aria-label="Temayı değiştir">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a href="#iletisim" class="btn btn-primary">Proje başlat<svg aria-hidden="true"><use href="#arrow"/></svg></a>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill reveal"><b><span class="dot"></span>Yeni projelere açığız</b><span class="slogan" lang="en">Here! Everything is developing from a root.</span></span>
+        <h1 class="reveal" style="--d:.06s">Yazılımınızı <em>kökten<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14C50 4 150 4 198 12" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></em> sağlam kuruyoruz.</h1>
+        <p class="lead reveal" style="--d:.12s">Rootiver; web, backend, siber güvenlik ve altyapıda uzmanlaşmış dört mühendisten oluşan bir yazılım geliştirme ekibi. Fikrinizi alıyor, güvenli ve ölçeklenebilir bir ürün olarak canlıya taşıyoruz.</p>
+        <div class="hero-cta reveal" style="--d:.18s">
+          <a href="#iletisim" class="btn btn-primary">Projenizi konuşalım<svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a href="#isler" class="btn btn-ghost">İşlerimizi görün</a>
+        </div>
+        <div class="hero-proof reveal" style="--d:.24s">
+          <span><svg aria-hidden="true"><use href="#check"/></svg>Güvenlik öncelikli</span>
+          <span><svg aria-hidden="true"><use href="#check"/></svg>Canlıda kanıtlı ürünler</span>
+          <span><svg aria-hidden="true"><use href="#check"/></svg>Açık kaynak geçmişi</span>
+        </div>
+      </div>
+
+      <div class="reveal" style="--d:.2s">
+        <div class="terminal" role="img" aria-label="Rootiver ürünlerinin canlı durumunu gösteren terminal görünümü">
+          <div class="terminal-bar"><i></i><i></i><i></i><span>root@rootiver: ~</span></div>
+          <div class="terminal-body">
+            <div class="t-line" style="animation-delay:.5s"><span class="t-prompt">root@rootiver</span>:<span class="t-path">~</span># rootiver status --production</div>
+            <div class="t-line t-dim" style="animation-delay:.9s">→ canlı servisler kontrol ediliyor…</div>
+            <div class="t-line" style="animation-delay:1.2s">&nbsp;</div>
+            <div class="t-line t-row" style="animation-delay:1.4s"><i class="ok"></i><b>hesapvizyon.com</b><em>restoran finans · SaaS</em></div>
+            <div class="t-line t-row" style="animation-delay:1.65s"><i class="ok"></i><b>nraphy.net</b><em>16.000+ sunucu</em></div>
+            <div class="t-line t-row" style="animation-delay:1.9s"><i class="ok"></i><b>techNDS</b><em>99+ cihaz izleniyor</em></div>
+            <div class="t-line t-row" style="animation-delay:2.15s"><i class="ok"></i><b>noctera.stream</b><em>müzik label · web</em></div>
+            <div class="t-line t-row" style="animation-delay:2.4s"><i class="ok"></i><b>altyapi.frudotz.com</b><em>telekom sorgu</em></div>
+            <div class="t-line" style="animation-delay:2.7s">&nbsp;</div>
+            <div class="t-line" style="animation-delay:2.9s"><span style="color:#5EE6B7">✓ 5/5 servis ayakta</span> <span class="t-dim">· TLS aktif</span></div>
+            <div class="t-line" style="animation-delay:3.2s"><span class="t-prompt">root@rootiver</span>:<span class="t-path">~</span># <span class="t-cursor"></span></div>
+          </div>
+          <div class="terminal-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Rakamlarla Rootiver">
+    <div class="wrap">
+      <div class="stats-grid reveal">
+        <div class="stat"><strong><span data-count="16000">16.000</span><sup>+</sup></strong><span>Nraphy'nin hizmet verdiği Discord sunucusu</span></div>
+        <div class="stat"><strong><span data-count="99">99</span><sup>+</sup></strong><span>techNDS ile anlık izlenen ağ cihazı</span></div>
+        <div class="stat"><strong><span data-count="150">150</span><sup>+</sup></strong><span>Açık kaynak projelerimize verilen GitHub yıldızı</span></div>
+        <div class="stat"><strong><span data-count="4">4</span></strong><span>Güvenlik geçmişli, alanında uzman mühendis</span></div>
+      </div>
+    </div>
+    <div class="marquee" aria-label="Kullandığımız teknolojiler">
+      <div class="marquee-track">
+        <span>TypeScript</span><span>Rust</span><span>Python</span><span>Node.js</span><span>NestJS</span><span>Next.js</span><span>React</span><span>PostgreSQL</span><span>Redis</span><span>MongoDB</span><span>Prisma</span><span>Tokio</span><span>Axum</span><span>Docker</span><span>Cloudflare</span><span>Nginx</span><span>Linux</span><span>WebSocket</span><span>Tailwind</span>
+        <span aria-hidden="true">TypeScript</span><span aria-hidden="true">Rust</span><span aria-hidden="true">Python</span><span aria-hidden="true">Node.js</span><span aria-hidden="true">NestJS</span><span aria-hidden="true">Next.js</span><span aria-hidden="true">React</span><span aria-hidden="true">PostgreSQL</span><span aria-hidden="true">Redis</span><span aria-hidden="true">MongoDB</span><span aria-hidden="true">Prisma</span><span aria-hidden="true">Tokio</span><span aria-hidden="true">Axum</span><span aria-hidden="true">Docker</span><span aria-hidden="true">Cloudflare</span><span aria-hidden="true">Nginx</span><span aria-hidden="true">Linux</span><span aria-hidden="true">WebSocket</span><span aria-hidden="true">Tailwind</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="hizmetler">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Hizmetler</span>
+        <h2>Bir ürünün ihtiyaç duyduğu her katman, tek ekipte.</h2>
+        <p>Arayüzden sunucuya, veritabanından güvenlik testine kadar işi parçalara bölüp farklı firmalara dağıtmanıza gerek yok.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 14l-2 1.5L8 17M16 14l2 1.5-2 1.5M13 13l-2 5"/></svg></div>
+          <h3>Web Uygulamaları & SaaS</h3>
+          <p>Yönetim panelleri, müşteri portalları ve abonelik tabanlı ürünler. Hızlı, erişilebilir ve her ekranda düzgün.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+        </article>
+        <article class="service reveal" style="--d:.06s">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.5"/><path d="M4.5 5.5v6c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-6M4.5 11.5v6c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-6"/></svg></div>
+          <h3>Backend & API</h3>
+          <p>Gerçek zamanlı veri akışı, çok kiracılı mimari ve yük altında ayakta kalan servisler.</p>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Rust</span><span class="tag">PostgreSQL</span></div>
+        </article>
+        <article class="service reveal" style="--d:.12s">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3z"/><path d="M9.5 12.5h5v3.5h-5zM10.5 12.5v-1.5a1.5 1.5 0 0 1 3 0v1.5"/></svg></div>
+          <h3>Siber Güvenlik</h3>
+          <p>Sızma testi, zafiyet ve CVE taraması, güvenlik denetimi. Kendi yazdığımız araçlarla, kendi elimizle.</p>
+          <div class="tags"><span class="tag">Pentest</span><span class="tag">OSINT</span><span class="tag">Tersine Müh.</span></div>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="18" height="6" rx="2"/><rect x="3" y="14.5" width="18" height="6" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M12 9.5v5"/></svg></div>
+          <h3>Ağ & Altyapı</h3>
+          <p>Sunucu kurulumu, Cloudflare, ağ izleme ve alarm sistemleri. Sorunu kullanıcı fark etmeden önce siz görün.</p>
+          <div class="tags"><span class="tag">Linux</span><span class="tag">Nginx</span><span class="tag">Cloudflare</span><span class="tag">SNMP</span></div>
+        </article>
+        <article class="service reveal" style="--d:.06s">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4.5M9 13.5h.01M15 13.5h.01M9.5 17h5M2 13v2M22 13v2"/></svg></div>
+          <h3>Bot & Otomasyon</h3>
+          <p>Discord botları, entegrasyonlar ve tekrarlayan işleri sizin yerinize yapan otomasyonlar.</p>
+          <div class="tags"><span class="tag">Discord.js</span><span class="tag">Python</span><span class="tag">Webhook</span></div>
+        </article>
+        <article class="service reveal" style="--d:.12s">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 1 9-9c0 1.7-1.3 3-3 3h-1.8a1.7 1.7 0 0 0-1.2 2.9 1.7 1.7 0 0 1-1.2 3.1z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="15.5" cy="7.5" r="1"/></svg></div>
+          <h3>Arayüz & Marka Tasarımı</h3>
+          <p>Ürün arayüzü, marka kimliği ve reklam görselleri. Kodla tasarımın aynı masada konuştuğu bir süreç.</p>
+          <div class="tags"><span class="tag">UI/UX</span><span class="tag">Grafik</span><span class="tag">Reklam</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section why">
+    <div class="wrap why-grid">
+      <div class="section-head reveal">
+        <span class="eyebrow">Neden <span lang="en">Rootiver</span></span>
+        <h2>Güvenlik sonradan eklenen bir özellik değil.</h2>
+        <p>Ekibimizin tamamı siber güvenlik geçmişine sahip. Bu yüzden kod yazmaya başlamadan önce "bu nasıl kırılır?" diye sorarız.</p>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal"><span class="num">01</span><div><h3>Kökten güvenli</h3><p>Kimlik doğrulama, veri şifreleme ve yetkilendirme ilk günden mimarinin parçası. Teslimden önce kendi ürünümüze sızma testi uygularız.</p></div></div>
+        <div class="why-item reveal" style="--d:.06s"><span class="num">02</span><div><h3>Canlıda kanıtlanmış</h3><p>Portföyümüzdeki ürünler bir sunum dosyasında değil, şu an gerçek kullanıcılara hizmet veriyor. Tıklayın, kendiniz deneyin.</p></div></div>
+        <div class="why-item reveal" style="--d:.12s"><span class="num">03</span><div><h3>Şeffaf ve açık</h3><p>Açık kaynak projelerimizin kodu herkese açık. Nasıl çalıştığımızı görmek için bize güvenmenize gerek yok; GitHub'a bakmanız yeterli.</p></div></div>
+        <div class="why-item reveal" style="--d:.18s"><span class="num">04</span><div><h3>Tek muhatap, tam ekip</h3><p>Tasarım, yazılım, altyapı ve güvenlik aynı ekipte. Sorumluluk dağılmaz, iletişim kopmaz.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section work" id="isler">
+    <div class="wrap">
+      <div class="work-top">
+        <div class="section-head reveal">
+          <span class="eyebrow">Portföy</span>
+          <h2>Canlıda çalışan işler.</h2>
+          <p>Ekran görüntüleri gerçek ürünlerden alındı. Her birine tıklayıp kendiniz inceleyebilirsiniz.</p>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Projeleri filtrele">
+          <button type="button" data-filter="all" aria-pressed="true">Tümü</button>
+          <button type="button" data-filter="urun" aria-pressed="false">Ürün & Web</button>
+          <button type="button" data-filter="guvenlik" aria-pressed="false">Güvenlik</button>
+          <button type="button" data-filter="altyapi" aria-pressed="false">Ağ & Altyapı</button>
+        </div>
+      </div>
+
+      <div class="work-grid">
+        <article class="project full reveal" data-cat="urun">
+          <a class="shot" href="https://hesapvizyon.com/" target="_blank" rel="noopener">
+            <div class="shot-bar"><i></i><i></i><i></i><span><svg aria-hidden="true"><use href="#lock"/></svg>hesapvizyon.com</span></div>
+            <img src="assets/work/hesapvizyon.webp" alt="HesapVizyon ana sayfası ve menü fiyatları tablosu" width="1200" height="750" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-meta"><span>SaaS · Restoran & Kafe</span><span class="live"><span class="dot"></span>Canlı</span></div>
+            <h3>HesapVizyon</h3>
+            <p>Restoran ve kafeler için finans yönetimi. Reçete maliyeti, satış fiyatlandırması, günlük gelir-gider ve Trendyol, Yemeksepeti, Getir, Migros mutabakatı tek panelde. Çok şubeli işletmeleri destekler.</p>
+            <div class="tags"><span class="tag">Web App</span><span class="tag">Çok şube</span><span class="tag">Raporlama</span></div>
+            <div class="metric"><div><strong>4</strong><span>teslimat platformu entegre</span></div><div><strong>Canlı</strong><span>ücretsiz deneme</span></div></div>
+            <div class="project-foot">
+              <span class="by"><span class="mono-av" style="--c1:#5000FF;--c2:#B45CFF">RK</span>Rauf Fatih Kaya</span>
+              <a class="go" href="https://hesapvizyon.com/" target="_blank" rel="noopener">Siteyi aç<svg aria-hidden="true"><use href="#ext"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project half reveal" data-cat="urun">
+          <a class="shot" href="https://nraphy.net/" target="_blank" rel="noopener">
+            <div class="shot-bar"><i></i><i></i><i></i><span><svg aria-hidden="true"><use href="#lock"/></svg>nraphy.net</span></div>
+            <img src="assets/work/nraphy.webp" alt="Nraphy Discord botu tanıtım sayfası" width="1200" height="750" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-meta"><span><span lang="en">Discord</span> Botu · 2020'den beri</span><span class="live"><span class="dot"></span>Canlı</span></div>
+            <h3>Nraphy</h3>
+            <p>16.000'den fazla sunucuda kullanılan Türkçe Discord botu. 22 sistem, 76 komut, OAuth2 web paneli ve Premium altyapısı. Çekirdeği açık kaynak.</p>
+            <div class="tags"><span class="tag">Discord.js</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
+            <div class="project-foot">
+              <span class="by"><span class="mono-av" style="--c1:#5000FF;--c2:#B45CFF">RK</span>Rauf Fatih Kaya</span>
+              <a class="go" href="https://nraphy.net/" target="_blank" rel="noopener">Siteyi aç<svg aria-hidden="true"><use href="#ext"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project half reveal" style="--d:.06s" data-cat="altyapi">
+          <a class="shot" href="https://app.mahmutcirka.me/" target="_blank" rel="noopener">
+            <div class="shot-bar"><i></i><i></i><i></i><span><svg aria-hidden="true"><use href="#lock"/></svg>app.mahmutcirka.me</span></div>
+            <img src="assets/work/techxms.webp" alt="techNDS ağ izleme platformu giriş ekranı" width="1200" height="750" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-meta"><span>Kurumsal · Ağ İzleme (NMS)</span><span class="live"><span class="dot"></span>Canlı</span></div>
+            <h3>techNDS</h3>
+            <p>Cihazları SNMP ve ICMP ile yoklayan, topolojiyi haritalayan, telemetriyi WebSocket ile anlık aktaran ve eşik alarmları üreten çok kiracılı ağ izleme platformu.</p>
+            <div class="tags"><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span></div>
+            <div class="project-foot">
+              <span class="by"><span class="mono-av" style="--c1:#3A00B8;--c2:#00B3FF">MÇ</span>Mahmut Çirka</span>
+              <a class="go" href="https://app.mahmutcirka.me/" target="_blank" rel="noopener">Demoyu aç<svg aria-hidden="true"><use href="#ext"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-cat="urun">
+          <a class="shot" href="https://noctera.stream/" target="_blank" rel="noopener">
+            <div class="shot-bar"><i></i><i></i><i></i><span><svg aria-hidden="true"><use href="#lock"/></svg>noctera.stream</span></div>
+            <img src="assets/work/noctera.webp" alt="NOCTERA müzik label web sitesi" width="1200" height="750" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-meta"><span>Marka · Web</span><span class="live"><span class="dot"></span>Canlı</span></div>
+            <h3>NOCTERA</h3>
+            <p>Bağımsız bir müzik label'ı için editoryal tasarımlı tanıtım ve yayın sitesi.</p>
+            <div class="project-foot">
+              <span class="by"><span class="mono-av" style="--c1:#7A00FF;--c2:#FF4FA3">AK</span>H. Arda Karabacak</span>
+              <a class="go" href="https://noctera.stream/" target="_blank" rel="noopener" aria-label="NOCTERA sitesini aç"><svg aria-hidden="true"><use href="#ext"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" style="--d:.06s" data-cat="altyapi">
+          <a class="shot" href="https://altyapi.frudotz.com/" target="_blank" rel="noopener">
+            <div class="shot-bar"><i></i><i></i><i></i><span><svg aria-hidden="true"><use href="#lock"/></svg>altyapi.frudotz.com</span></div>
+            <img src="assets/work/altyapi.webp" alt="Altyapı Sorgulama aracı arayüzü" width="1200" height="750" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-meta"><span>Araç · Telekom</span><span class="live"><span class="dot"></span>Canlı</span></div>
+            <h3>Altyapı Sorgulama</h3>
+            <p>Adres veya BBK numarasıyla maksimum hız, altyapı türü ve boş port bilgisini gösteren sorgu aracı.</p>
+            <div class="project-foot">
+              <span class="by"><span class="mono-av" style="--c1:#7A00FF;--c2:#FF4FA3">AK</span>H. Arda Karabacak</span>
+              <a class="go" href="https://altyapi.frudotz.com/" target="_blank" rel="noopener" aria-label="Altyapı Sorgulama aracını aç"><svg aria-hidden="true"><use href="#ext"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" style="--d:.12s" data-cat="guvenlik">
+          <a class="shot" href="https://cs2.frudotz.com/" target="_blank" rel="noopener">
+            <div class="shot-bar"><i></i><i></i><i></i><span><svg aria-hidden="true"><use href="#lock"/></svg>cs2.frudotz.com</span></div>
+            <img src="assets/work/cs2.webp" alt="CS2 Profil Analizi aracı arayüzü" width="1200" height="750" loading="lazy">
+          </a>
+          <div class="project-body">
+            <div class="project-meta"><span>Analiz · Güven Skoru</span><span class="live"><span class="dot"></span>Canlı</span></div>
+            <h3>CS2 Güven Skoru</h3>
+            <p>Steam ve Faceit verilerini birleştirerek oyuncu profillerinin güven ve risk skorunu çıkaran analiz aracı.</p>
+            <div class="project-foot">
+              <span class="by"><span class="mono-av" style="--c1:#7A00FF;--c2:#FF4FA3">AK</span>H. Arda Karabacak</span>
+              <a class="go" href="https://cs2.frudotz.com/" target="_blank" rel="noopener" aria-label="CS2 Güven Skoru aracını aç"><svg aria-hidden="true"><use href="#ext"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="oss-head reveal"><h3>Açık kaynak & Ar-Ge</h3></div>
+      <div class="oss-grid">
+        <a class="oss reveal" data-cat="guvenlik" href="https://github.com/mahmutcirka/ISU-SecOps-Engine" target="_blank" rel="noopener">
+          <div class="oss-top"><span>Rust · Ortak proje</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>ISU SecOps Engine</h4>
+          <p>DNS keşfi, OSINT zenginleştirme ve port taramasını eşzamanlı yürüten asenkron keşif motoru. Tokio + Axum.</p>
+          <div class="oss-foot"><span class="by"><span class="by-stack"><span class="mono-av" style="--c1:#3A00B8;--c2:#00B3FF">MÇ</span><span class="mono-av" style="--c1:#7A00FF;--c2:#FF4FA3">AK</span><span class="mono-av" style="--c1:#5000FF;--c2:#FF3D6E">MK</span></span>3 ekip üyesi</span></div>
+        </a>
+        <a class="oss reveal" style="--d:.06s" data-cat="guvenlik" href="https://github.com/RFKaya/Port-Scanner" target="_blank" rel="noopener">
+          <div class="oss-top"><span>Rust · Güvenlik</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>RustSecOps Port Scanner</h4>
+          <p>TCP, UDP ve SYN taraması yapan, açık servisleri bilinen CVE'lerle eşleştiren hibrit tarayıcı. Web paneli ve Docker desteği.</p>
+          <div class="oss-foot"><span class="by"><span class="mono-av" style="--c1:#5000FF;--c2:#B45CFF">RK</span>Rauf Fatih Kaya</span></div>
+        </a>
+        <a class="oss reveal" style="--d:.12s" data-cat="guvenlik" href="https://github.com/RedRiveRR/reveng-nexus" target="_blank" rel="noopener">
+          <div class="oss-top"><span>Python · Tersine Müh.</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>ReVeng Nexus</h4>
+          <p>Ghidra, IDA, Binary Ninja, JADX ve Frida'yı tek çatıda toplayan, kanıta dayalı tersine mühendislik için MCP geçidi.</p>
+          <div class="oss-foot"><span class="by"><span class="mono-av" style="--c1:#5000FF;--c2:#FF3D6E">MK</span>A. Mert Kızılırmak</span></div>
+        </a>
+        <a class="oss reveal" data-cat="urun" href="https://github.com/RFKaya/Nraphy" target="_blank" rel="noopener">
+          <div class="oss-top"><span><span lang="en">JavaScript</span> · Açık kaynak</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>Nraphy Çekirdeği</h4>
+          <p>Binlerce sunucuda çalışan botun açık kaynak altyapısı. Topluluk tarafından 31 kez forklandı.</p>
+          <div class="oss-foot"><span class="by"><span class="mono-av" style="--c1:#5000FF;--c2:#B45CFF">RK</span>Rauf Fatih Kaya</span><span class="star"><svg aria-hidden="true"><use href="#star"/></svg>105</span></div>
+        </a>
+        <a class="oss reveal" style="--d:.06s" data-cat="altyapi" href="https://github.com/frudotz/openwrt-xiaomi-4a-gigabit" target="_blank" rel="noopener">
+          <div class="oss-top"><span>Python · Ağ</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>OpenWRT Rehberleri</h4>
+          <p>Xiaomi, Zyxel cihazlara OpenWRT kurulumu, SQM ve Cloudflare Tunnel yapılandırması için uygulamalı rehberler.</p>
+          <div class="oss-foot"><span class="by"><span class="mono-av" style="--c1:#7A00FF;--c2:#FF4FA3">AK</span>H. Arda Karabacak</span><span class="star"><svg aria-hidden="true"><use href="#star"/></svg>18</span></div>
+        </a>
+        <a class="oss reveal" style="--d:.12s" data-cat="guvenlik" href="https://github.com/RedRiveRR/changelog-vulnerability-scanner" target="_blank" rel="noopener">
+          <div class="oss-top"><span>Python · Güvenlik</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>Changelog CVE Scanner</h4>
+          <p>Sürüm notlarını tarayarak olası güvenlik açıklarını (CVE) otomatik tespit eden araç.</p>
+          <div class="oss-foot"><span class="by"><span class="mono-av" style="--c1:#5000FF;--c2:#FF3D6E">MK</span>A. Mert Kızılırmak</span></div>
+        </a>
+        <a class="oss reveal" data-cat="guvenlik" href="https://github.com/RFKaya/sifre-olusturucu-puanlayici" target="_blank" rel="noopener">
+          <div class="oss-top"><span>Python · Güvenlik</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>Parola Güvenlik Analizörü</h4>
+          <p>Parolaları NIST SP 800-63B kurallarına ve sızıntı verilerine karşı test eder; k-anonymity sayesinde parola ağa hiç çıkmaz.</p>
+          <div class="oss-foot"><span class="by"><span class="mono-av" style="--c1:#5000FF;--c2:#B45CFF">RK</span>Rauf Fatih Kaya</span></div>
+        </a>
+        <a class="oss reveal" style="--d:.06s" data-cat="altyapi" href="https://github.com/frudotz/ISU-SecOps-CFTunnelAuditor" target="_blank" rel="noopener">
+          <div class="oss-top"><span>Shell · Altyapı</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>CF Tunnel Auditor</h4>
+          <p>Cloudflare Tunnel yapılandırmalarını güvenlik en iyi uygulamalarına göre denetleyen araç.</p>
+          <div class="oss-foot"><span class="by"><span class="mono-av" style="--c1:#7A00FF;--c2:#FF4FA3">AK</span>H. Arda Karabacak</span></div>
+        </a>
+        <a class="oss reveal" style="--d:.12s" data-cat="altyapi" href="https://github.com/RedRiveRR/M5Stack-NOVA" target="_blank" rel="noopener">
+          <div class="oss-top"><span>C · Gömülü</span><svg class="arrow" aria-hidden="true"><use href="#ext"/></svg></div>
+          <h4>M5Stack NOVA</h4>
+          <p>ESP32 / ESP32-S3 tabanlı M5Stack donanımları için entegre firmware ortamı.</p>
+          <div class="oss-foot"><span class="by"><span class="mono-av" style="--c1:#5000FF;--c2:#FF3D6E">MK</span>A. Mert Kızılırmak</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" id="ekip">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Kadro</span>
+        <h2>İşinizi yapacak insanlarla tanışın.</h2>
+        <p>Projeniz bir hesap yöneticisine değil, doğrudan kodu yazan mühendislere emanet. Her birinin kendi işleri ortada.</p>
+      </div>
+      <div class="team-grid">
+        <article class="member reveal">
+          <span class="mono-av member-av" style="--c1:#5000FF;--c2:#FF3D6E" aria-hidden="true">MK</span>
+          <div class="member-role">Tersine Müh. & Gömülü Sistemler</div>
+          <h3>A. Mert Kızılırmak</h3>
+          <p>Binary analizi, donanım güvenliği ve firmware üzerine çalışır. Ghidra'dan ESP32'ye, sistemin en alt katmanına iner.</p>
+          <div class="tags"><span class="tag">Reverse Eng.</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">ESP32</span></div>
+          <div class="member-links">
+            <a class="site" href="https://redriverlab.me/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#globe"/></svg>redriverlab.me</a>
+            <a href="https://github.com/RedRiveRR" target="_blank" rel="noopener" aria-label="A. Mert Kızılırmak GitHub"><svg aria-hidden="true"><use href="#gh"/></svg></a>
+          </div>
+        </article>
+        <article class="member reveal" style="--d:.06s">
+          <span class="mono-av member-av" style="--c1:#7A00FF;--c2:#FF4FA3" aria-hidden="true">AK</span>
+          <div class="member-role">Ağ & Sistem · Marka Tasarımı</div>
+          <h3>H. Arda Karabacak</h3>
+          <p>Ağ altyapısı ve sistem yönetiminden reklam ve marka tasarımına uzanan geniş bir yelpazede çalışır.</p>
+          <div class="tags"><span class="tag">Networking</span><span class="tag">OpenWRT</span><span class="tag">Cloudflare</span><span class="tag">Grafik</span></div>
+          <div class="member-links">
+            <a class="site" href="https://frudotz.com/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#globe"/></svg>frudotz.com</a>
+            <a href="https://github.com/frudotz" target="_blank" rel="noopener" aria-label="H. Arda Karabacak GitHub"><svg aria-hidden="true"><use href="#gh"/></svg></a>
+            <a href="https://frudotz.com/linkedin" target="_blank" rel="noopener" aria-label="H. Arda Karabacak LinkedIn"><svg aria-hidden="true"><use href="#in"/></svg></a>
+            <a href="https://frudotz.com/behance" target="_blank" rel="noopener" aria-label="H. Arda Karabacak Behance"><svg aria-hidden="true"><use href="#be"/></svg></a>
+          </div>
+        </article>
+        <article class="member reveal" style="--d:.12s">
+          <span class="mono-av member-av" style="--c1:#5000FF;--c2:#B45CFF" aria-hidden="true">RK</span>
+          <div class="member-role">Full-Stack & Siber Güvenlik</div>
+          <h3>Rauf Fatih Kaya</h3>
+          <p>2020'den beri ürün geliştiriyor. 16.000+ sunucuya hizmet veren Nraphy'nin ve HesapVizyon'un geliştiricisi.</p>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Rust</span><span class="tag">Next.js</span></div>
+          <div class="member-links">
+            <a class="site" href="https://rfkaya.com/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#globe"/></svg>rfkaya.com</a>
+            <a href="https://github.com/RFKaya" target="_blank" rel="noopener" aria-label="Rauf Fatih Kaya GitHub"><svg aria-hidden="true"><use href="#gh"/></svg></a>
+            <a href="https://www.linkedin.com/in/rfkaya/" target="_blank" rel="noopener" aria-label="Rauf Fatih Kaya LinkedIn"><svg aria-hidden="true"><use href="#in"/></svg></a>
+          </div>
+        </article>
+        <article class="member reveal" style="--d:.18s">
+          <span class="mono-av member-av" style="--c1:#3A00B8;--c2:#00B3FF" aria-hidden="true">MÇ</span>
+          <div class="member-role">Full-Stack & Ağ Güvenliği</div>
+          <h3>Mahmut Çirka</h3>
+          <p>Ağları izleyen sistemler ve onları test eden araçlar geliştirir. Kurumsal ağ izleme platformu techNDS'in mimarı.</p>
+          <div class="tags"><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Pentest</span></div>
+          <div class="member-links">
+            <a class="site" href="https://mahmutcirka.me/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#globe"/></svg>mahmutcirka.me</a>
+            <a href="https://github.com/mahmutcirka" target="_blank" rel="noopener" aria-label="Mahmut Çirka GitHub"><svg aria-hidden="true"><use href="#gh"/></svg></a>
+            <a href="https://www.linkedin.com/in/mahmut-%C3%A7irka-549772280/" target="_blank" rel="noopener" aria-label="Mahmut Çirka LinkedIn"><svg aria-hidden="true"><use href="#in"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="surec" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Süreç</span>
+        <h2>Fikirden canlıya, dört adımda.</h2>
+        <p>Her adımda ne yaptığımızı görürsünüz. Sürpriz yok, kara kutu yok.</p>
+      </div>
+      <div class="process-grid">
+        <div class="step reveal">
+          <div class="step-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></div>
+          <small>01</small><h3>Keşif</h3>
+          <p>İhtiyacı, kullanıcıyı ve riskleri birlikte netleştirir, kapsamı ve takvimi yazılı hale getiririz.</p>
+        </div>
+        <div class="step reveal" style="--d:.06s">
+          <div class="step-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M3.5 9h17M9 20.5V9"/></svg></div>
+          <small>02</small><h3>Tasarım & Mimari</h3>
+          <p>Arayüzü ve teknik mimariyi koda geçmeden önce sizinle onaylarız.</p>
+        </div>
+        <div class="step reveal" style="--d:.12s">
+          <div class="step-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg></div>
+          <small>03</small><h3>Geliştirme</h3>
+          <p>Kısa döngüler, düzenli demolar ve her aşamada güvenlik testleriyle ilerleriz.</p>
+        </div>
+        <div class="step reveal" style="--d:.18s">
+          <div class="step-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg></div>
+          <small>04</small><h3>Yayın & Destek</h3>
+          <p>Canlıya alır, izlemeye bağlar ve teslimden sonra da yanınızda kalırız.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="iletisim">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <svg class="big-mark" viewBox="0 0 145 64" aria-hidden="true"><use href="#mark"/></svg>
+        <svg class="big-mark l" viewBox="0 0 145 64" aria-hidden="true"><use href="#mark"/></svg>
+        <h2>Aklınızdaki projeyi kökünden konuşalım.</h2>
+        <p>Birkaç cümleyle ne yapmak istediğinizi anlatın. Size uygun yol haritası ve net bir teklifle dönelim.</p>
+        <div class="hero-cta">
+          <a href="mailto:iletisim@rootiver.net?subject=Proje%20Talebi" class="btn btn-primary">E-posta gönderin<svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a href="https://github.com/rootiverdev" target="_blank" rel="noopener" class="btn btn-ghost"><svg aria-hidden="true" style="width:18px;height:18px"><use href="#gh"/></svg>GitHub'da Rootiver</a>
+        </div>
+        <button type="button" class="mail-copy" id="copyMail" data-mail="iletisim@rootiver.net">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+          <span>iletisim@rootiver.net</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Rootiver"><svg viewBox="0 0 145 64" aria-hidden="true"><use href="#mark"/></svg>Rootiver</a>
+    <nav class="footer-links" aria-label="Alt menü">
+      <a href="#hizmetler">Hizmetler</a><a href="#isler">İşlerimiz</a><a href="#ekip">Ekip</a><a href="#iletisim">İletişim</a>
+    </nav>
+    <span>© <span id="year">2026</span> Rootiver · <i>Everything is developing from a root.</i></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.body.classList.remove('no-js');
+  var root = document.documentElement;
+
+  // Theme toggle (remembers choice when storage is available)
+  try { var saved = localStorage.getItem('theme'); if (saved) root.dataset.theme = saved; } catch (e) {}
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  });
+
+  // Header state + mobile menu
+  var header = document.querySelector('.header');
+  var onScroll = function () { header.classList.toggle('scrolled', scrollY > 8); };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  var nav = document.getElementById('nav'), menuBtn = document.getElementById('menuBtn');
+  var setMenu = function (open) { nav.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); };
+  menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+
+  // Reveal on scroll + stat counters
+  var fmt = new Intl.NumberFormat('tr-TR');
+  var countUp = function (el) {
+    var end = +el.dataset.count, t0 = performance.now(), dur = 1400;
+    var tick = function (t) {
+      var p = Math.min((t - t0) / dur, 1);
+      el.textContent = fmt.format(Math.round(end * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      if (!reduce) en.target.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(en.target);
+    });
+  }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  // Portfolio filter
+  var items = document.querySelectorAll('.project, .oss');
+  document.querySelectorAll('.filters button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.dataset.filter;
+      document.querySelectorAll('.filters button').forEach(function (b) { b.setAttribute('aria-pressed', b === btn); });
+      items.forEach(function (it) {
+        it.hidden = f !== 'all' && it.dataset.cat !== f;
+        if (!it.hidden) it.classList.add('in');
+      });
+    });
+  });
+
+  // Copy e-mail
+  var copyBtn = document.getElementById('copyMail');
+  copyBtn.addEventListener('click', function () {
+    var label = copyBtn.querySelector('span'), mail = copyBtn.dataset.mail;
+    (navigator.clipboard ? navigator.clipboard.writeText(mail) : Promise.reject()).then(function () {
+      label.textContent = 'Kopyalandı ✓';
+      setTimeout(function () { label.textContent = mail; }, 1800);
+    }).catch(function () { location.href = 'mailto:' + mail; });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
