@@ -140,23 +140,17 @@ p { margin: 0; }
 .url:hover svg { color: #fff; transform: translate(2px, -2px); }
 
 /* Portfolio */
-.work-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .project {
   --ink: #0B0817;
   position: relative; display: flex; flex-direction: column; min-height: 290px; border-radius: 24px;
-  overflow: hidden; isolation: isolate; color: #fff; background: var(--ink);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, .08);
+  overflow: hidden; isolation: isolate; color: #fff;
+  background: linear-gradient(155deg, color-mix(in srgb, var(--accent) 38%, var(--ink)) 0%, color-mix(in srgb, var(--accent) 12%, var(--ink)) 55%, var(--ink) 100%);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
 }
-.project.wide { grid-column: span 2; }
 .project::before {
   content: ""; position: absolute; inset: 0; z-index: -2;
-  background:
-    radial-gradient(90% 80% at 100% 0%, color-mix(in srgb, var(--accent) 42%, transparent), transparent 62%),
-    radial-gradient(60% 60% at 0% 100%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%),
-    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 28px 28px;
-  -webkit-mask-image: radial-gradient(120% 100% at 100% 0%, #000 30%, rgba(0, 0, 0, .35) 80%);
-  mask-image: radial-gradient(120% 100% at 100% 0%, #000 30%, rgba(0, 0, 0, .35) 80%);
+  background: radial-gradient(80% 70% at 100% 0%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 65%);
 }
 .project::after {
   content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .4s ease;
@@ -172,10 +166,8 @@ p { margin: 0; }
 }
 .logo-tile .mark { width: 100%; height: 100%; object-fit: contain; }
 .project:hover .logo-tile { opacity: .8; transform: translateY(-50%) rotate(0) scale(1.06); }
-.project.wide .logo-tile { right: 32px; width: 220px; height: 220px; }
 .project-title { margin-top: auto; }
 .project h3 { font-size: 26px; color: #fff; }
-.project.wide h3 { font-size: clamp(28px, 3vw, 38px); }
 .project small { display: block; margin-top: 8px; font-size: 14px; color: rgba(255, 255, 255, .58); }
 .project-url {
   display: flex; align-items: center; gap: 10px; padding: 16px 24px; font: 500 13.5px/1 var(--mono);
@@ -226,10 +218,9 @@ p { margin: 0; }
   .hero .mark-bg { width: 420px; }
   .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
   .work-grid { grid-template-columns: 1fr; gap: 12px; }
-  .project.wide { grid-column: auto; }
   .project { min-height: 230px; border-radius: 20px; }
   .project-body { padding: 20px; }
-  .logo-tile, .project.wide .logo-tile { right: -20px; width: 160px; height: 160px; }
+  .logo-tile { right: -20px; width: 160px; height: 160px; }
   .project-url { padding: 14px 20px; }
   .team-grid { gap: 12px; }
   .member { border-radius: 18px; }
@@ -308,7 +299,7 @@ p { margin: 0; }
     <div class="wrap">
       <h2 class="reveal">Portföy &amp; İşbirlikleri</h2>
       <div class="work-grid">
-        <a class="project wide reveal" style="--accent:#6467F2" href="https://hesapvizyon.com/" target="_blank" rel="noopener">
+        <a class="project reveal" style="--accent:#6467F2" href="https://hesapvizyon.com/" target="_blank" rel="noopener">
           <div class="project-body">
             <span class="logo-tile"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"/><path d="M2 9v1c0 1.1.9 2 2 2h1"/><path d="M16 11h.01"/></svg></span>
             <div class="project-title"><h3>HesapVizyon</h3><small>Restoran &amp; kafe yazılımı</small></div>
@@ -342,7 +333,7 @@ p { margin: 0; }
           </div>
           <span class="project-url">altyapi.frudotz.com<svg aria-hidden="true"><use href="#ext"/></svg></span>
         </a>
-        <a class="project wide reveal" style="--accent:#B9B6C9;--d:0.12s" href="https://noctera.stream/" target="_blank" rel="noopener">
+        <a class="project reveal" style="--accent:#B9B6C9;--d:0.12s" href="https://noctera.stream/" target="_blank" rel="noopener">
           <div class="project-body">
             <span class="logo-tile"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M10.5 23V9l11 14V9" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></span>
             <div class="project-title"><h3>NOCTERA</h3><small>Müzik label</small></div>
