@@ -140,31 +140,58 @@ p { margin: 0; }
 .url:hover svg { color: #fff; transform: translate(2px, -2px); }
 
 /* Portfolio */
-.work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.work-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .project {
   --ink: #0B0817;
-  position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px;
-  min-height: 240px; padding: 24px 26px 26px; border-radius: 22px; overflow: hidden; isolation: isolate; color: #fff;
-  background: linear-gradient(150deg, color-mix(in srgb, var(--accent) 30%, var(--ink)) 0%, var(--ink) 72%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); transition: transform .35s ease, box-shadow .35s ease;
+  position: relative; display: flex; flex-direction: column; min-height: 290px; border-radius: 24px;
+  overflow: hidden; isolation: isolate; color: #fff; background: var(--ink);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .08);
 }
-.project:hover {
-  transform: translateY(-4px);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent), 0 24px 50px -24px color-mix(in srgb, var(--accent) 70%, transparent);
+.project.wide { grid-column: span 2; }
+.project::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(90% 80% at 100% 0%, color-mix(in srgb, var(--accent) 42%, transparent), transparent 62%),
+    radial-gradient(60% 60% at 0% 100%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 28px 28px;
+  -webkit-mask-image: radial-gradient(120% 100% at 100% 0%, #000 30%, rgba(0, 0, 0, .35) 80%);
+  mask-image: radial-gradient(120% 100% at 100% 0%, #000 30%, rgba(0, 0, 0, .35) 80%);
 }
-.project .mark {
-  position: absolute; z-index: -1; right: -24px; top: 44%; width: 172px; height: 172px; object-fit: contain;
-  color: var(--accent); opacity: .45; transform: translateY(-50%) rotate(-8deg); transition: transform .5s ease, opacity .5s ease;
+.project::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .4s ease;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--accent) 28%, transparent), transparent 65%);
 }
-.project:hover .mark { opacity: .75; transform: translateY(-50%) rotate(0) scale(1.05); }
+.project:hover { transform: translateY(-6px); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent), 0 32px 64px -30px color-mix(in srgb, var(--accent) 80%, transparent); }
+.project:hover::after { opacity: 1; }
+.project-body { flex: 1; display: flex; flex-direction: column; gap: 28px; padding: 24px 24px 26px; }
+.logo-tile {
+  display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; color: var(--accent);
+  background: rgba(255, 255, 255, .06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), 0 14px 34px -12px color-mix(in srgb, var(--accent) 85%, transparent);
+  transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+.logo-tile .mark { width: 34px; height: 34px; object-fit: contain; }
+.project:hover .logo-tile { transform: scale(1.08) rotate(-4deg); }
+.project.wide .logo-tile { width: 80px; height: 80px; border-radius: 22px; }
+.project.wide .logo-tile .mark { width: 44px; height: 44px; }
+.project-title { margin-top: auto; }
+.project h3 { font-size: 26px; color: #fff; }
+.project.wide h3 { font-size: clamp(28px, 3vw, 38px); }
+.project small { display: block; margin-top: 8px; font-size: 14px; color: rgba(255, 255, 255, .58); }
 .project-url {
-  align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; border-radius: 999px;
-  font: 500 13px/1 var(--mono); color: rgba(255, 255, 255, .85); background: rgba(255, 255, 255, .08);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  display: flex; align-items: center; gap: 10px; padding: 16px 24px; font: 500 13.5px/1 var(--mono);
+  color: rgba(255, 255, 255, .9); background: rgba(255, 255, 255, .03); border-top: 1px solid rgba(255, 255, 255, .08);
+  transition: background .3s, color .3s;
 }
-.project-url svg { width: 13px; height: 13px; }
-.project h3 { font-size: 28px; color: #fff; }
-.project small { display: block; margin-top: 6px; font-size: 14px; color: rgba(255, 255, 255, .6); }
+.project-url::before {
+  content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); animation: live 2.4s ease-out infinite;
+}
+.project-url svg { width: 15px; height: 15px; flex: none; margin-left: auto; color: var(--accent); transition: transform .3s, color .3s; }
+.project:hover .project-url { color: #fff; background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.project:hover .project-url svg { color: #fff; transform: translate(2px, -2px); }
+@keyframes live { 70%, 100% { box-shadow: 0 0 0 7px transparent; } }
 
 /* Contact */
 .cta-box {
@@ -200,7 +227,11 @@ p { margin: 0; }
   .hero p { font-size: 17px; }
   .hero .mark-bg { width: 420px; }
   .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
-  .work-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr; gap: 12px; }
+  .project.wide { grid-column: auto; }
+  .project { min-height: 230px; border-radius: 20px; }
+  .project-body { padding: 20px; }
+  .project-url { padding: 14px 20px; }
   .team-grid { gap: 12px; }
   .member { border-radius: 18px; }
   .member-photo { padding: 12px; }
@@ -211,7 +242,7 @@ p { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: .001ms !important; }
+  *, *::before, *::after { transition-duration: .001ms !important; animation: none !important; }
 }
 </style>
 </head>
@@ -278,34 +309,46 @@ p { margin: 0; }
     <div class="wrap">
       <h2 class="reveal">Portföy &amp; İşbirlikleri</h2>
       <div class="work-grid">
-        <a class="project reveal" style="--accent:#6467F2" href="https://hesapvizyon.com/" target="_blank" rel="noopener">
-          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"/><path d="M2 9v1c0 1.1.9 2 2 2h1"/><path d="M16 11h.01"/></svg>
+        <a class="project wide reveal" style="--accent:#6467F2" href="https://hesapvizyon.com/" target="_blank" rel="noopener">
+          <div class="project-body">
+            <span class="logo-tile"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"/><path d="M2 9v1c0 1.1.9 2 2 2h1"/><path d="M16 11h.01"/></svg></span>
+            <div class="project-title"><h3>HesapVizyon</h3><small>Restoran &amp; kafe yazılımı</small></div>
+          </div>
           <span class="project-url">hesapvizyon.com<svg aria-hidden="true"><use href="#ext"/></svg></span>
-          <div><h3>HesapVizyon</h3><small>Restoran & kafe yazılımı</small></div>
         </a>
         <a class="project reveal" style="--accent:#E50862;--d:0.06s" href="https://nraphy.net/" target="_blank" rel="noopener">
-          <img class="mark" src="assets/logos/nraphy.webp" alt="" width="480" height="380" loading="lazy">
+          <div class="project-body">
+            <span class="logo-tile"><img class="mark" src="assets/logos/nraphy.webp" alt="" width="480" height="380" loading="lazy"></span>
+            <div class="project-title"><h3>Nraphy</h3><small>Discord botu</small></div>
+          </div>
           <span class="project-url">nraphy.net<svg aria-hidden="true"><use href="#ext"/></svg></span>
-          <div><h3>Nraphy</h3><small>Discord botu</small></div>
         </a>
         <a class="project reveal" style="--accent:#2DD4BF;--d:0.12s" href="https://app.mahmutcirka.me/" target="_blank" rel="noopener">
-          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg>
+          <div class="project-body">
+            <span class="logo-tile"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg></span>
+            <div class="project-title"><h3>techNDS</h3><small>Ağ izleme platformu</small></div>
+          </div>
           <span class="project-url">app.mahmutcirka.me<svg aria-hidden="true"><use href="#ext"/></svg></span>
-          <div><h3>techNDS</h3><small>Ağ izleme platformu</small></div>
         </a>
-        <a class="project reveal" style="--accent:#B9B6C9" href="https://noctera.stream/" target="_blank" rel="noopener">
-          <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M10.5 23V9l11 14V9" fill="none" stroke="currentColor" stroke-width="1.75"/></svg>
-          <span class="project-url">noctera.stream<svg aria-hidden="true"><use href="#ext"/></svg></span>
-          <div><h3>NOCTERA</h3><small>Müzik label</small></div>
+        <a class="project reveal" style="--accent:#22C55E" href="https://cs2.frudotz.com/" target="_blank" rel="noopener">
+          <div class="project-body">
+            <div class="project-title"><h3>CS2 Güven Skoru</h3><small>Oyuncu profil analizi</small></div>
+          </div>
+          <span class="project-url">cs2.frudotz.com<svg aria-hidden="true"><use href="#ext"/></svg></span>
         </a>
         <a class="project reveal" style="--accent:#38BDF8;--d:0.06s" href="https://altyapi.frudotz.com/" target="_blank" rel="noopener">
-          <svg class="mark" viewBox="4 3.5 24 24" aria-hidden="true"><path d="M8 22h3v-5H8zM14.5 22h3V13h-3zM21 22h3V9h-3z" fill="currentColor"/></svg>
+          <div class="project-body">
+            <span class="logo-tile"><svg class="mark" viewBox="4 3.5 24 24" aria-hidden="true"><path d="M8 22h3v-5H8zM14.5 22h3V13h-3zM21 22h3V9h-3z" fill="currentColor"/></svg></span>
+            <div class="project-title"><h3>Altyapı Sorgulama</h3><small>İnternet altyapı sorgusu</small></div>
+          </div>
           <span class="project-url">altyapi.frudotz.com<svg aria-hidden="true"><use href="#ext"/></svg></span>
-          <div><h3>Altyapı Sorgulama</h3><small>İnternet altyapı sorgusu</small></div>
         </a>
-        <a class="project reveal" style="--accent:#22C55E;--d:0.12s" href="https://cs2.frudotz.com/" target="_blank" rel="noopener">
-          <span class="project-url">cs2.frudotz.com<svg aria-hidden="true"><use href="#ext"/></svg></span>
-          <div><h3>CS2 Güven Skoru</h3><small>Oyuncu profil analizi</small></div>
+        <a class="project wide reveal" style="--accent:#B9B6C9;--d:0.12s" href="https://noctera.stream/" target="_blank" rel="noopener">
+          <div class="project-body">
+            <span class="logo-tile"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M10.5 23V9l11 14V9" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></span>
+            <div class="project-title"><h3>NOCTERA</h3><small>Müzik label</small></div>
+          </div>
+          <span class="project-url">noctera.stream<svg aria-hidden="true"><use href="#ext"/></svg></span>
         </a>
       </div>
     </div>
@@ -349,6 +392,14 @@ p { margin: 0; }
     entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
   }, { threshold: .1 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  document.querySelectorAll('.project').forEach(function (el) {
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
 
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
