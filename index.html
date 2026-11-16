@@ -183,6 +183,21 @@ p { margin: 0; }
 .project:hover .project-url svg { color: #fff; transform: translate(2px, -2px); }
 @keyframes live { 70%, 100% { box-shadow: 0 0 0 7px transparent; } }
 
+/* Applications */
+.applications { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px 88px; text-align: center; }
+.application { display: flex; flex-direction: column; align-items: center; gap: 18px; width: 240px; }
+.application-logo { height: 112px; width: 200px; object-fit: contain; }
+.application p { font-size: 14px; color: var(--muted); }
+.application-logo-dark { display: none; }
+:root[data-theme="dark"] .application-logo-light { display: none; }
+:root[data-theme="dark"] .application-logo-dark { display: block; }
+:root[data-theme="dark"] .application-logo-mono { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .application-logo-light { display: none; }
+  :root:not([data-theme="light"]) .application-logo-dark { display: block; }
+  :root:not([data-theme="light"]) .application-logo-mono { filter: invert(1); }
+}
+
 /* Contact */
 .cta-box {
   position: relative; overflow: hidden; isolation: isolate; border-radius: 28px; padding: 80px 32px; text-align: center; color: #fff;
@@ -347,18 +362,15 @@ p { margin: 0; }
   <section class="section" id="basvurular" style="padding-top:24px" aria-labelledby="basvurular-baslik">
     <div class="wrap">
       <h2 class="reveal" id="basvurular-baslik">Proje Başvurularımız</h2>
-      <div class="work-grid">
-        <article class="project reveal" style="--accent:#F97316">
-          <div class="project-body">
-            <div class="project-title"><h3>TEKNOFEST 2022</h3><small>Ekip üyelerimizle 5 proje başvurusu yaptık.</small></div>
-          </div>
-          <span class="project-url">2022 · 5 başvuru</span>
+      <div class="applications">
+        <article class="application reveal">
+          <img class="application-logo application-logo-mono" src="assets/logos/teknofest.png" alt="TEKNOFEST" width="220" height="72" loading="lazy">
+          <p>2022 · 5 proje başvurusu</p>
         </article>
-        <article class="project reveal" style="--accent:#A78BFA;--d:0.06s">
-          <div class="project-body">
-            <div class="project-title"><h3>TÜBİTAK 2209-A</h3><small>2026 yılında proje başvurumuzu yaptık.</small></div>
-          </div>
-          <span class="project-url">2026 · Başvuru</span>
+        <article class="application reveal" style="--d:0.06s">
+          <img class="application-logo application-logo-light" src="assets/logos/tubitak.png" alt="TÜBİTAK" width="220" height="72" loading="lazy">
+          <img class="application-logo application-logo-dark" src="assets/logos/tubitak-white.png" alt="TÜBİTAK" width="220" height="72" loading="lazy">
+          <p>2026 · 2209-A başvurusu</p>
         </article>
       </div>
     </div>
