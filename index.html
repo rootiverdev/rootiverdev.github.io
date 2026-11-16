@@ -183,6 +183,15 @@ p { margin: 0; }
 .project:hover .project-url svg { color: #fff; transform: translate(2px, -2px); }
 @keyframes live { 70%, 100% { box-shadow: 0 0 0 7px transparent; } }
 
+/* Compact open-source portfolio */
+.open-source { margin-top: 0; }
+.open-source > h3 { font-size: 16px; text-align: center; margin-bottom: 24px; color: var(--muted); }
+.repo-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 24px; max-width: 960px; margin: 0 auto; padding: 0; list-style: none; }
+.repo-link { display: inline-flex; align-items: baseline; gap: 5px; padding: 3px 0; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.repo-link::after { content: "↗"; color: var(--muted); font-size: 10px; }
+.repo-link:hover { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .repo-list { gap: 6px 12px; } }
+
 /* Applications */
 .applications { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px 88px; text-align: center; }
 .application { display: flex; flex-direction: column; align-items: center; gap: 18px; width: 240px; }
@@ -356,6 +365,7 @@ p { margin: 0; }
           <span class="project-url">noctera.stream<svg aria-hidden="true"><use href="#ext"/></svg></span>
         </a>
       </div>
+
     </div>
   </section>
 
@@ -373,6 +383,28 @@ p { margin: 0; }
           <p>2026 · 2209-A başvurusu</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="acik-kaynak" style="padding-top:24px" aria-labelledby="open-source-title">
+    <div class="wrap open-source">
+        <h3 id="open-source-title">Ekibin açık kaynak çalışmaları</h3>
+        <ul class="repo-list">
+          <li><a class="repo-link" href="https://github.com/RedRiveRR/changelog-vulnerability-scanner" target="_blank" rel="noopener">Changelog Vulnerability Scanner</a></li>
+          <li><a class="repo-link" href="https://github.com/frudotz/ISU-SecOps-CFTunnelAuditor" target="_blank" rel="noopener">Cloudflared Tunnel Auditor</a></li>
+          <li><a class="repo-link" href="https://github.com/RedRiveRR/ISU-SecOps-Engine" target="_blank" rel="noopener">DirBrute</a></li>
+          <li><a class="repo-link" href="https://github.com/mahmutcirka/ISU-SecOps-Engine" target="_blank" rel="noopener">DNS Enumeration</a></li>
+          <li><a class="repo-link" href="https://github.com/RedRiveRR/jev-mcp-bridge" target="_blank" rel="noopener">Jev MCP Bridge</a></li>
+          <li><a class="repo-link" href="https://github.com/RedRiveRR/M5Stack-NOVA" target="_blank" rel="noopener">NOVA Firmware</a></li>
+          <li><a class="repo-link" href="https://github.com/frudotz/openwrt-dsl-bridge-wizard" target="_blank" rel="noopener">OpenWRT Köprü Sihirbazı</a></li>
+          <li><a class="repo-link" href="https://github.com/RFKaya/sifre-olusturucu-puanlayici" target="_blank" rel="noopener">Parola Güvenlik Analizörü</a></li>
+          <li><a class="repo-link" href="https://github.com/RedRiveRR/reveng-nexus" target="_blank" rel="noopener">RevEng Nexus</a></li>
+          <li><a class="repo-link" href="https://github.com/RFKaya/Port-Scanner" target="_blank" rel="noopener">SecOps Port Scanner</a></li>
+          <li><a class="repo-link" href="https://github.com/RFKaya/ctf-conference-tracker" target="_blank" rel="noopener">Siber Etkinlik Takipçisi</a></li>
+          <li><a class="repo-link" href="https://github.com/RFKaya/unitercihleriAsistan" target="_blank" rel="noopener">Tercih Asistanı</a></li>
+          <li><a class="repo-link" href="https://github.com/frudotz/openwrt-wol-automation" target="_blank" rel="noopener">Wake-on-LAN Otomasyonu</a></li>
+          <li><a class="repo-link" href="https://github.com/mahmutcirka/webdna" target="_blank" rel="noopener">WebDNA</a></li>
+        </ul>
     </div>
   </section>
 
